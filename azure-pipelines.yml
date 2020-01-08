@@ -7,7 +7,7 @@ variables:
 stages:
 - stage: 'Build'
   displayName: 'Build the web application'
-  jobs: 
+  jobs:
   - job: 'Build'
     displayName: 'Build job'
     pool:
@@ -70,13 +70,13 @@ stages:
   dependsOn: Build
   jobs:
   - job: Provision
-  displayName: 'Provision Azure App Service'
-  pool:
-    vmImage: 'ubuntu-16.04'
-  variables:
-  - group: Release
-  steps:
-  - script: |
+    displayName: 'Provision Azure App Service'
+    pool:
+      vmImage: 'ubuntu-16.04'
+    variables:
+      - group: Release
+    steps:
+      - script: |
       # Exit when any command returns a failure status.
       set -e
 
